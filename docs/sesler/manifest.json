@@ -1,0 +1,1950 @@
+{
+ "restoran": {
+  "baslik": "Lüks restoran",
+  "alt": "piyano, kadeh",
+  "grup": "Zengin",
+  "yatak": [
+   "restoran/yatak1.mp3",
+   "restoran/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "catal",
+    "ort": 5,
+    "min": 1.5,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "restoran/catal1.mp3",
+     "restoran/catal2.mp3",
+     "restoran/catal3.mp3",
+     "restoran/catal4.mp3",
+     "restoran/catal5.mp3",
+     "restoran/catal6.mp3",
+     "restoran/catal7.mp3",
+     "restoran/catal8.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kadeh",
+    "ort": 35,
+    "min": 12,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "restoran/kadeh1.mp3",
+     "restoran/kadeh2.mp3",
+     "restoran/kadeh3.mp3",
+     "restoran/kadeh4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sampanya",
+    "ort": 120,
+    "min": 50,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "restoran/sampanya1.mp3",
+     "restoran/sampanya2.mp3",
+     "restoran/sampanya3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sarap",
+    "ort": 45,
+    "min": 20,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "restoran/sarap1.mp3",
+     "restoran/sarap2.mp3",
+     "restoran/sarap3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "garson",
+    "ort": 45,
+    "min": 20,
+    "kazanc": 0.5,
+    "dosyalar": [
+     "restoran/garson1.mp3",
+     "restoran/garson2.mp3",
+     "restoran/garson3.mp3",
+     "restoran/garson4.mp3",
+     "restoran/garson5.mp3"
+    ],
+    "yuru": true,
+    "sabit": true
+   },
+   {
+    "ad": "masa",
+    "ort": 25,
+    "min": 8,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "restoran/masa1.mp3",
+     "restoran/masa2.mp3",
+     "restoran/masa3.mp3",
+     "restoran/masa4.mp3",
+     "restoran/masa5.mp3",
+     "restoran/masa6.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "gulme",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.15,
+    "dosyalar": [
+     "restoran/gulme1.mp3",
+     "restoran/gulme2.mp3",
+     "restoran/gulme3.mp3",
+     "restoran/gulme4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "lobi": {
+  "baslik": "Otel lobisi",
+  "alt": "mermer, piyano",
+  "grup": "Zengin",
+  "yatak": [
+   "lobi/yatak1.mp3",
+   "lobi/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "adim",
+    "ort": 12,
+    "min": 4,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "lobi/adim1.mp3",
+     "lobi/adim2.mp3",
+     "lobi/adim3.mp3",
+     "lobi/adim4.mp3",
+     "lobi/adim5.mp3",
+     "lobi/adim6.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "bavul",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "lobi/bavul1.mp3",
+     "lobi/bavul2.mp3",
+     "lobi/bavul3.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "asansor",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "lobi/asansor1.mp3",
+     "lobi/asansor2.mp3",
+     "lobi/asansor3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "zil",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "lobi/zil1.mp3",
+     "lobi/zil2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "karsilama",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "lobi/karsilama1.mp3",
+     "lobi/karsilama2.mp3",
+     "lobi/karsilama3.mp3",
+     "lobi/karsilama4.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "yat": {
+  "baslik": "Yat",
+  "alt": "deniz, buz",
+  "grup": "Zengin",
+  "yatak": [
+   "yat/yatak1.mp3",
+   "yat/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "halat",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "yat/halat1.mp3",
+     "yat/halat2.mp3",
+     "yat/halat3.mp3",
+     "yat/halat4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "buz",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "yat/buz1.mp3",
+     "yat/buz2.mp3",
+     "yat/buz3.mp3",
+     "yat/buz4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sampanya",
+    "ort": 150,
+    "min": 60,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "yat/sampanya1.mp3",
+     "yat/sampanya2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "marti",
+    "ort": 35,
+    "min": 12,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "yat/marti1.mp3",
+     "yat/marti2.mp3",
+     "yat/marti3.mp3",
+     "yat/marti4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "tekne",
+    "ort": 90,
+    "min": 40,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "yat/tekne1.mp3",
+     "yat/tekne2.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "savrulma",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "yat/savrulma1.mp3",
+     "yat/savrulma2.mp3",
+     "yat/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "kumarhane": {
+  "baslik": "Kumarhane",
+  "alt": "slot, rulet",
+  "grup": "Zengin",
+  "yatak": [
+   "kumarhane/yatak1.mp3",
+   "kumarhane/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "slot",
+    "ort": 4,
+    "min": 1,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "kumarhane/slot1.mp3",
+     "kumarhane/slot2.mp3",
+     "kumarhane/slot3.mp3",
+     "kumarhane/slot4.mp3",
+     "kumarhane/slot5.mp3",
+     "kumarhane/slot6.mp3",
+     "kumarhane/slot7.mp3",
+     "kumarhane/slot8.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "rulet",
+    "ort": 30,
+    "min": 15,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kumarhane/rulet1.mp3",
+     "kumarhane/rulet2.mp3",
+     "kumarhane/rulet3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "fis",
+    "ort": 7,
+    "min": 2,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "kumarhane/fis1.mp3",
+     "kumarhane/fis2.mp3",
+     "kumarhane/fis3.mp3",
+     "kumarhane/fis4.mp3",
+     "kumarhane/fis5.mp3",
+     "kumarhane/fis6.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kadeh",
+    "ort": 25,
+    "min": 10,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kumarhane/kadeh1.mp3",
+     "kumarhane/kadeh2.mp3",
+     "kumarhane/kadeh3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "tezahurat",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "kumarhane/tezahurat1.mp3",
+     "kumarhane/tezahurat2.mp3",
+     "kumarhane/tezahurat3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "gulme",
+    "ort": 35,
+    "min": 12,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kumarhane/gulme1.mp3",
+     "kumarhane/gulme2.mp3",
+     "kumarhane/gulme3.mp3",
+     "kumarhane/gulme4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "jet": {
+  "baslik": "Özel jet",
+  "alt": "sessiz kabin",
+  "grup": "Zengin",
+  "yatak": [
+   "jet/yatak1.mp3",
+   "jet/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kadeh",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "jet/kadeh1.mp3",
+     "jet/kadeh2.mp3",
+     "jet/kadeh3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sampanya",
+    "ort": 180,
+    "min": 80,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "jet/sampanya1.mp3",
+     "jet/sampanya2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kemer",
+    "ort": 150,
+    "min": 60,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "jet/kemer1.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "anons",
+    "ort": 240,
+    "min": 120,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "jet/anons1.mp3",
+     "jet/anons2.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "kafe": {
+  "baslik": "Kafe",
+  "alt": "garson, fincan",
+  "grup": "Şehir",
+  "yatak": [
+   "kafe/yatak1.mp3",
+   "kafe/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "fincan",
+    "ort": 6,
+    "min": 1.5,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kafe/fincan1.mp3",
+     "kafe/fincan2.mp3",
+     "kafe/fincan3.mp3",
+     "kafe/fincan4.mp3",
+     "kafe/fincan5.mp3",
+     "kafe/fincan6.mp3",
+     "kafe/fincan7.mp3",
+     "kafe/fincan8.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "tabak",
+    "ort": 12,
+    "min": 3,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "kafe/tabak1.mp3",
+     "kafe/tabak2.mp3",
+     "kafe/tabak3.mp3",
+     "kafe/tabak4.mp3",
+     "kafe/tabak5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kasik",
+    "ort": 25,
+    "min": 8,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "kafe/kasik1.mp3",
+     "kafe/kasik2.mp3",
+     "kafe/kasik3.mp3",
+     "kafe/kasik4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sandalye",
+    "ort": 22,
+    "min": 6,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kafe/sandalye1.mp3",
+     "kafe/sandalye2.mp3",
+     "kafe/sandalye3.mp3",
+     "kafe/sandalye4.mp3",
+     "kafe/sandalye5.mp3",
+     "kafe/sandalye6.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "garson",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.7,
+    "dosyalar": [
+     "kafe/garson1.mp3",
+     "kafe/garson2.mp3",
+     "kafe/garson3.mp3",
+     "kafe/garson4.mp3",
+     "kafe/garson5.mp3",
+     "kafe/garson6.mp3"
+    ],
+    "yuru": true,
+    "sabit": true
+   },
+   {
+    "ad": "devirme",
+    "ort": 200,
+    "min": 90,
+    "kazanc": 0.9,
+    "dosyalar": [
+     "kafe/devirme1.mp3",
+     "kafe/devirme2.mp3",
+     "kafe/devirme3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "espresso",
+    "ort": 55,
+    "min": 25,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "kafe/espresso1.mp3",
+     "kafe/espresso2.mp3",
+     "kafe/espresso3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kapi",
+    "ort": 90,
+    "min": 35,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kafe/kapi1.mp3",
+     "kafe/kapi2.mp3",
+     "kafe/kapi3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "masa",
+    "ort": 18,
+    "min": 6,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kafe/masa1.mp3",
+     "kafe/masa2.mp3",
+     "kafe/masa3.mp3",
+     "kafe/masa4.mp3",
+     "kafe/masa5.mp3",
+     "kafe/masa6.mp3",
+     "kafe/masa7.mp3",
+     "kafe/masa8.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "gulme",
+    "ort": 70,
+    "min": 25,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "kafe/gulme1.mp3",
+     "kafe/gulme2.mp3",
+     "kafe/gulme3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "meyhane": {
+  "baslik": "Meyhane",
+  "alt": "şerefe, tabak",
+  "grup": "Şehir",
+  "yatak": [
+   "meyhane/yatak1.mp3",
+   "meyhane/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kadeh",
+    "ort": 15,
+    "min": 4,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "meyhane/kadeh1.mp3",
+     "meyhane/kadeh2.mp3",
+     "meyhane/kadeh3.mp3",
+     "meyhane/kadeh4.mp3",
+     "meyhane/kadeh5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "serefe",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.5,
+    "dosyalar": [
+     "meyhane/serefe1.mp3",
+     "meyhane/serefe2.mp3",
+     "meyhane/serefe3.mp3",
+     "meyhane/serefe4.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "tabak",
+    "ort": 10,
+    "min": 3,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "meyhane/tabak1.mp3",
+     "meyhane/tabak2.mp3",
+     "meyhane/tabak3.mp3",
+     "meyhane/tabak4.mp3",
+     "meyhane/tabak5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "catal",
+    "ort": 7,
+    "min": 2,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "meyhane/catal1.mp3",
+     "meyhane/catal2.mp3",
+     "meyhane/catal3.mp3",
+     "meyhane/catal4.mp3",
+     "meyhane/catal5.mp3",
+     "meyhane/catal6.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "garson",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.6,
+    "dosyalar": [
+     "meyhane/garson1.mp3",
+     "meyhane/garson2.mp3",
+     "meyhane/garson3.mp3",
+     "meyhane/garson4.mp3"
+    ],
+    "yuru": true,
+    "sabit": true
+   },
+   {
+    "ad": "gulme",
+    "ort": 20,
+    "min": 7,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "meyhane/gulme1.mp3",
+     "meyhane/gulme2.mp3",
+     "meyhane/gulme3.mp3",
+     "meyhane/gulme4.mp3",
+     "meyhane/gulme5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "masa",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "meyhane/masa1.mp3",
+     "meyhane/masa2.mp3",
+     "meyhane/masa3.mp3",
+     "meyhane/masa4.mp3",
+     "meyhane/masa5.mp3",
+     "meyhane/masa6.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "devirme",
+    "ort": 300,
+    "min": 150,
+    "kazanc": 0.8,
+    "dosyalar": [
+     "meyhane/devirme1.mp3",
+     "meyhane/devirme2.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "pazar": {
+  "baslik": "Semt pazarı",
+  "alt": "bağıran satıcılar",
+  "grup": "Şehir",
+  "yatak": [
+   "pazar/yatak1.mp3",
+   "pazar/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "satici",
+    "ort": 9,
+    "min": 3,
+    "kazanc": 0.55,
+    "dosyalar": [
+     "pazar/satici1.mp3",
+     "pazar/satici2.mp3",
+     "pazar/satici3.mp3",
+     "pazar/satici4.mp3",
+     "pazar/satici5.mp3",
+     "pazar/satici6.mp3",
+     "pazar/satici7.mp3",
+     "pazar/satici8.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "poset",
+    "ort": 8,
+    "min": 2,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "pazar/poset1.mp3",
+     "pazar/poset2.mp3",
+     "pazar/poset3.mp3",
+     "pazar/poset4.mp3",
+     "pazar/poset5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "terazi",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "pazar/terazi1.mp3",
+     "pazar/terazi2.mp3",
+     "pazar/terazi3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "adim",
+    "ort": 10,
+    "min": 4,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "pazar/adim1.mp3",
+     "pazar/adim2.mp3",
+     "pazar/adim3.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   }
+  ]
+ },
+ "berber": {
+  "baslik": "Berber",
+  "alt": "makas, çay",
+  "grup": "Şehir",
+  "yatak": [
+   "berber/yatak1.mp3",
+   "berber/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "makas",
+    "ort": 5,
+    "min": 1.5,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "berber/makas1.mp3",
+     "berber/makas2.mp3",
+     "berber/makas3.mp3",
+     "berber/makas4.mp3",
+     "berber/makas5.mp3",
+     "berber/makas6.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "tiras",
+    "ort": 35,
+    "min": 15,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "berber/tiras1.mp3",
+     "berber/tiras2.mp3",
+     "berber/tiras3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "sprey",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "berber/sprey1.mp3",
+     "berber/sprey2.mp3",
+     "berber/sprey3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "cay",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "berber/cay1.mp3",
+     "berber/cay2.mp3",
+     "berber/cay3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "usta",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "berber/usta1.mp3",
+     "berber/usta2.mp3",
+     "berber/usta3.mp3",
+     "berber/usta4.mp3",
+     "berber/usta5.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "kapi",
+    "ort": 120,
+    "min": 50,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "berber/kapi1.mp3",
+     "berber/kapi2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "kulup": {
+  "baslik": "Gece kulübü",
+  "alt": "bas, kalabalık",
+  "grup": "Şehir",
+  "yatak": [
+   "kulup/yatak1.mp3",
+   "kulup/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "tezahurat",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kulup/tezahurat1.mp3",
+     "kulup/tezahurat2.mp3",
+     "kulup/tezahurat3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "kadeh",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kulup/kadeh1.mp3",
+     "kulup/kadeh2.mp3",
+     "kulup/kadeh3.mp3",
+     "kulup/kadeh4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "gulme",
+    "ort": 25,
+    "min": 10,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kulup/gulme1.mp3",
+     "kulup/gulme2.mp3",
+     "kulup/gulme3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "bagiran",
+    "ort": 35,
+    "min": 15,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "kulup/bagiran1.mp3",
+     "kulup/bagiran2.mp3",
+     "kulup/bagiran3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "tribun": {
+  "baslik": "Tribün",
+  "alt": "maç havası",
+  "grup": "Şehir",
+  "yatak": [
+   "tribun/yatak1.mp3",
+   "tribun/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "tezahurat",
+    "ort": 28,
+    "min": 12,
+    "kazanc": 0.6,
+    "dosyalar": [
+     "tribun/tezahurat1.mp3",
+     "tribun/tezahurat2.mp3",
+     "tribun/tezahurat3.mp3",
+     "tribun/tezahurat4.mp3",
+     "tribun/tezahurat5.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "davul",
+    "ort": 35,
+    "min": 15,
+    "kazanc": 0.5,
+    "dosyalar": [
+     "tribun/davul1.mp3",
+     "tribun/davul2.mp3",
+     "tribun/davul3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "alkis",
+    "ort": 20,
+    "min": 6,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "tribun/alkis1.mp3",
+     "tribun/alkis2.mp3",
+     "tribun/alkis3.mp3",
+     "tribun/alkis4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "duduk",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "tribun/duduk1.mp3",
+     "tribun/duduk2.mp3",
+     "tribun/duduk3.mp3",
+     "tribun/duduk4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "yuhalama",
+    "ort": 80,
+    "min": 40,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "tribun/yuhalama1.mp3",
+     "tribun/yuhalama2.mp3",
+     "tribun/yuhalama3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "bagiran",
+    "ort": 22,
+    "min": 8,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "tribun/bagiran1.mp3",
+     "tribun/bagiran2.mp3",
+     "tribun/bagiran3.mp3",
+     "tribun/bagiran4.mp3",
+     "tribun/bagiran5.mp3",
+     "tribun/bagiran6.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "gol",
+    "ort": 240,
+    "min": 120,
+    "kazanc": 1.0,
+    "dosyalar": [
+     "tribun/gol1.mp3",
+     "tribun/gol2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "korna",
+    "ort": 60,
+    "min": 20,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "tribun/korna1.mp3",
+     "tribun/korna2.mp3",
+     "tribun/korna3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "vapur": {
+  "baslik": "Vapur",
+  "alt": "martı, simit, çay",
+  "grup": "Yolculuk",
+  "yatak": [
+   "vapur/yatak1.mp3",
+   "vapur/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "marti",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "vapur/marti1.mp3",
+     "vapur/marti2.mp3",
+     "vapur/marti3.mp3",
+     "vapur/marti4.mp3",
+     "vapur/marti5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "simitci",
+    "ort": 45,
+    "min": 20,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "vapur/simitci1.mp3",
+     "vapur/simitci2.mp3",
+     "vapur/simitci3.mp3",
+     "vapur/simitci4.mp3"
+    ],
+    "yuru": true,
+    "sabit": true
+   },
+   {
+    "ad": "cay",
+    "ort": 20,
+    "min": 6,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "vapur/cay1.mp3",
+     "vapur/cay2.mp3",
+     "vapur/cay3.mp3",
+     "vapur/cay4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "duduk",
+    "ort": 180,
+    "min": 80,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "vapur/duduk1.mp3",
+     "vapur/duduk2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "masa",
+    "ort": 25,
+    "min": 8,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "vapur/masa1.mp3",
+     "vapur/masa2.mp3",
+     "vapur/masa3.mp3",
+     "vapur/masa4.mp3",
+     "vapur/masa5.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "tren": {
+  "baslik": "Tren",
+  "alt": "ray, anons",
+  "grup": "Yolculuk",
+  "yatak": [
+   "tren/yatak1.mp3",
+   "tren/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "anons",
+    "ort": 150,
+    "min": 70,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "tren/anons1.mp3",
+     "tren/anons2.mp3",
+     "tren/anons3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "duduk",
+    "ort": 120,
+    "min": 50,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "tren/duduk1.mp3",
+     "tren/duduk2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "servis",
+    "ort": 120,
+    "min": 50,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "tren/servis1.mp3",
+     "tren/servis2.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "sayfa",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "tren/sayfa1.mp3",
+     "tren/sayfa2.mp3",
+     "tren/sayfa3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "masa",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "tren/masa1.mp3",
+     "tren/masa2.mp3",
+     "tren/masa3.mp3",
+     "tren/masa4.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "uzay": {
+  "baslik": "Uzay istasyonu",
+  "alt": "bip, telsiz",
+  "grup": "Yolculuk",
+  "yatak": [
+   "uzay/yatak1.mp3",
+   "uzay/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "bip",
+    "ort": 10,
+    "min": 3,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "uzay/bip1.mp3",
+     "uzay/bip2.mp3",
+     "uzay/bip3.mp3",
+     "uzay/bip4.mp3",
+     "uzay/bip5.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "kilit",
+    "ort": 90,
+    "min": 40,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "uzay/kilit1.mp3",
+     "uzay/kilit2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "telsiz",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "uzay/telsiz1.mp3",
+     "uzay/telsiz2.mp3",
+     "uzay/telsiz3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "ofis": {
+  "baslik": "Ofis",
+  "alt": "klavye, telefon",
+  "grup": "İç mekân",
+  "yatak": [
+   "ofis/yatak1.mp3",
+   "ofis/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "klavye",
+    "ort": 8,
+    "min": 2,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "ofis/klavye1.mp3",
+     "ofis/klavye2.mp3",
+     "ofis/klavye3.mp3",
+     "ofis/klavye4.mp3",
+     "ofis/klavye5.mp3",
+     "ofis/klavye6.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "telefon",
+    "ort": 90,
+    "min": 40,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "ofis/telefon1.mp3",
+     "ofis/telefon2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "yazici",
+    "ort": 70,
+    "min": 30,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "ofis/yazici1.mp3",
+     "ofis/yazici2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kahve",
+    "ort": 120,
+    "min": 50,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "ofis/kahve1.mp3",
+     "ofis/kahve2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "masa",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "ofis/masa1.mp3",
+     "ofis/masa2.mp3",
+     "ofis/masa3.mp3",
+     "ofis/masa4.mp3",
+     "ofis/masa5.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "sandalye",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "ofis/sandalye1.mp3",
+     "ofis/sandalye2.mp3",
+     "ofis/sandalye3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "kutuphane": {
+  "baslik": "Kütüphane",
+  "alt": "sayfa, fısıltı",
+  "grup": "İç mekân",
+  "yatak": [
+   "kutuphane/yatak1.mp3",
+   "kutuphane/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "sayfa",
+    "ort": 8,
+    "min": 2,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kutuphane/sayfa1.mp3",
+     "kutuphane/sayfa2.mp3",
+     "kutuphane/sayfa3.mp3",
+     "kutuphane/sayfa4.mp3",
+     "kutuphane/sayfa5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kalem",
+    "ort": 20,
+    "min": 6,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kutuphane/kalem1.mp3",
+     "kutuphane/kalem2.mp3",
+     "kutuphane/kalem3.mp3",
+     "kutuphane/kalem4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "adim",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kutuphane/adim1.mp3",
+     "kutuphane/adim2.mp3",
+     "kutuphane/adim3.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "oksuruk",
+    "ort": 70,
+    "min": 30,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "kutuphane/oksuruk1.mp3",
+     "kutuphane/oksuruk2.mp3",
+     "kutuphane/oksuruk3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "fisilti",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "kutuphane/fisilti1.mp3",
+     "kutuphane/fisilti2.mp3",
+     "kutuphane/fisilti3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "kitap",
+    "ort": 45,
+    "min": 15,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "kutuphane/kitap1.mp3",
+     "kutuphane/kitap2.mp3",
+     "kutuphane/kitap3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "somine": {
+  "baslik": "Şömine başı",
+  "alt": "ateş, saat, rüzgâr",
+  "grup": "İç mekân",
+  "yatak": [
+   "somine/yatak1.mp3",
+   "somine/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kutuk",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "somine/kutuk1.mp3",
+     "somine/kutuk2.mp3",
+     "somine/kutuk3.mp3",
+     "somine/kutuk4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "uluma",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "somine/uluma1.mp3",
+     "somine/uluma2.mp3",
+     "somine/uluma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "bardak",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "somine/bardak1.mp3",
+     "somine/bardak2.mp3",
+     "somine/bardak3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "spa": {
+  "baslik": "Spa",
+  "alt": "su, kase",
+  "grup": "İç mekân",
+  "yatak": [
+   "spa/yatak1.mp3",
+   "spa/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kase",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "spa/kase1.mp3",
+     "spa/kase2.mp3",
+     "spa/kase3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "can",
+    "ort": 25,
+    "min": 10,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "spa/can1.mp3",
+     "spa/can2.mp3",
+     "spa/can3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   }
+  ]
+ },
+ "orman": {
+  "baslik": "Orman",
+  "alt": "kuş, rüzgâr",
+  "grup": "Doğa",
+  "yatak": [
+   "orman/yatak1.mp3",
+   "orman/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kus",
+    "ort": 4,
+    "min": 0.8,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "orman/kus1.mp3",
+     "orman/kus2.mp3",
+     "orman/kus3.mp3",
+     "orman/kus4.mp3",
+     "orman/kus5.mp3",
+     "orman/kus6.mp3",
+     "orman/kus7.mp3",
+     "orman/kus8.mp3",
+     "orman/kus9.mp3",
+     "orman/kus10.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "agackakan",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "orman/agackakan1.mp3",
+     "orman/agackakan2.mp3",
+     "orman/agackakan3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "guguk",
+    "ort": 90,
+    "min": 40,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "orman/guguk1.mp3",
+     "orman/guguk2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "dal",
+    "ort": 70,
+    "min": 30,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "orman/dal1.mp3",
+     "orman/dal2.mp3",
+     "orman/dal3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "savrulma",
+    "ort": 30,
+    "min": 12,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "orman/savrulma1.mp3",
+     "orman/savrulma2.mp3",
+     "orman/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "sahil": {
+  "baslik": "Sahil",
+  "alt": "dalga, martı",
+  "grup": "Doğa",
+  "yatak": [
+   "sahil/yatak1.mp3",
+   "sahil/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "dalga",
+    "ort": 8,
+    "min": 4,
+    "kazanc": 0.8,
+    "dosyalar": [
+     "sahil/dalga1.mp3",
+     "sahil/dalga2.mp3",
+     "sahil/dalga3.mp3",
+     "sahil/dalga4.mp3",
+     "sahil/dalga5.mp3",
+     "sahil/dalga6.mp3",
+     "sahil/dalga7.mp3",
+     "sahil/dalga8.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "marti",
+    "ort": 30,
+    "min": 10,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "sahil/marti1.mp3",
+     "sahil/marti2.mp3",
+     "sahil/marti3.mp3",
+     "sahil/marti4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "vapur",
+    "ort": 150,
+    "min": 70,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "sahil/vapur1.mp3",
+     "sahil/vapur2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "savrulma",
+    "ort": 35,
+    "min": 15,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "sahil/savrulma1.mp3",
+     "sahil/savrulma2.mp3",
+     "sahil/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "yagmur": {
+  "baslik": "Yağmur",
+  "alt": "cama vuran",
+  "grup": "Doğa",
+  "yatak": [
+   "yagmur/yatak1.mp3",
+   "yagmur/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "gok",
+    "ort": 70,
+    "min": 30,
+    "kazanc": 0.8,
+    "dosyalar": [
+     "yagmur/gok1.mp3",
+     "yagmur/gok2.mp3",
+     "yagmur/gok3.mp3",
+     "yagmur/gok4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "araba",
+    "ort": 35,
+    "min": 12,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "yagmur/araba1.mp3",
+     "yagmur/araba2.mp3",
+     "yagmur/araba3.mp3",
+     "yagmur/araba4.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "oluk",
+    "ort": 45,
+    "min": 20,
+    "kazanc": 0.3,
+    "dosyalar": [
+     "yagmur/oluk1.mp3",
+     "yagmur/oluk2.mp3",
+     "yagmur/oluk3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "savrulma",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.35,
+    "dosyalar": [
+     "yagmur/savrulma1.mp3",
+     "yagmur/savrulma2.mp3",
+     "yagmur/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "firtina": {
+  "baslik": "Fırtına",
+  "alt": "gök, uluyan rüzgâr",
+  "grup": "Doğa",
+  "yatak": [
+   "firtina/yatak1.mp3",
+   "firtina/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "gok",
+    "ort": 25,
+    "min": 10,
+    "kazanc": 1.0,
+    "dosyalar": [
+     "firtina/gok1.mp3",
+     "firtina/gok2.mp3",
+     "firtina/gok3.mp3",
+     "firtina/gok4.mp3",
+     "firtina/gok5.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "uluma",
+    "ort": 15,
+    "min": 5,
+    "kazanc": 0.4,
+    "dosyalar": [
+     "firtina/uluma1.mp3",
+     "firtina/uluma2.mp3",
+     "firtina/uluma3.mp3",
+     "firtina/uluma4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "savrulma",
+    "ort": 15,
+    "min": 6,
+    "kazanc": 0.5,
+    "dosyalar": [
+     "firtina/savrulma1.mp3",
+     "firtina/savrulma2.mp3",
+     "firtina/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "kamp": {
+  "baslik": "Kamp ateşi",
+  "alt": "çıtırtı, baykuş",
+  "grup": "Doğa",
+  "yatak": [
+   "kamp/yatak1.mp3",
+   "kamp/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kutuk",
+    "ort": 20,
+    "min": 7,
+    "kazanc": 0.45,
+    "dosyalar": [
+     "kamp/kutuk1.mp3",
+     "kamp/kutuk2.mp3",
+     "kamp/kutuk3.mp3",
+     "kamp/kutuk4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "baykus",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kamp/baykus1.mp3",
+     "kamp/baykus2.mp3",
+     "kamp/baykus3.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "dal",
+    "ort": 60,
+    "min": 25,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "kamp/dal1.mp3",
+     "kamp/dal2.mp3",
+     "kamp/dal3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "kopek",
+    "ort": 150,
+    "min": 70,
+    "kazanc": 0.15,
+    "dosyalar": [
+     "kamp/kopek1.mp3",
+     "kamp/kopek2.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ },
+ "gece": {
+  "baslik": "Yaz gecesi",
+  "alt": "cırcır, köpek",
+  "grup": "Doğa",
+  "yatak": [
+   "gece/yatak1.mp3",
+   "gece/yatak2.mp3"
+  ],
+  "olaylar": [
+   {
+    "ad": "kopek",
+    "ort": 50,
+    "min": 20,
+    "kazanc": 0.2,
+    "dosyalar": [
+     "gece/kopek1.mp3",
+     "gece/kopek2.mp3",
+     "gece/kopek3.mp3",
+     "gece/kopek4.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   },
+   {
+    "ad": "araba",
+    "ort": 70,
+    "min": 30,
+    "kazanc": 0.15,
+    "dosyalar": [
+     "gece/araba1.mp3",
+     "gece/araba2.mp3",
+     "gece/araba3.mp3"
+    ],
+    "yuru": true,
+    "sabit": false
+   },
+   {
+    "ad": "baykus",
+    "ort": 90,
+    "min": 40,
+    "kazanc": 0.15,
+    "dosyalar": [
+     "gece/baykus1.mp3",
+     "gece/baykus2.mp3"
+    ],
+    "yuru": false,
+    "sabit": true
+   },
+   {
+    "ad": "savrulma",
+    "ort": 40,
+    "min": 15,
+    "kazanc": 0.25,
+    "dosyalar": [
+     "gece/savrulma1.mp3",
+     "gece/savrulma2.mp3",
+     "gece/savrulma3.mp3"
+    ],
+    "yuru": false,
+    "sabit": false
+   }
+  ]
+ }
+}

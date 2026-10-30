@@ -34,6 +34,7 @@ button:disabled { opacity: .45; }
 .ortamlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .ortam { background: var(--bg); border: 1px solid var(--cizgi); border-radius: 12px; padding: 14px 6px;
   text-align: center; color: var(--yazi); font-weight: 500; font-size: 15px; }
+.grup { font-size: 13px; color: var(--soluk); margin: 16px 0 8px; }
 .ortam.secili { border-color: var(--vurgu); color: var(--vurgu); background: rgba(232,163,92,.08); }
 .ortam small { display: block; color: var(--soluk); font-weight: 400; font-size: 12px; margin-top: 2px; }
 .baslik { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--soluk); margin: 0 0 10px; }
@@ -70,7 +71,7 @@ input[type=range] { width: 100%; accent-color: var(--vurgu); margin-top: 6px; }
 
   <div class="kart">
     <p class="baslik">Ortam</p>
-    <div class="ortamlar" id="ortamlar"></div>
+    <div id="ortamlar"></div>
     <p class="not" id="ortamNot">Seçtiğin ortam karşı tarafta da açılır.</p>
     <label class="kaydir">Ortam sesi <input type="range" id="ortamSes" min="0" max="100" value="45"></label>
     <label class="kaydir">Karşı tarafın sesi <input type="range" id="sesSes" min="0" max="200" value="100"></label>
@@ -83,16 +84,8 @@ input[type=range] { width: 100%; accent-color: var(--vurgu); margin-top: 6px; }
 
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 <script>
-const ORTAMLAR = [
-  { ad: "sessiz", ad_tr: "Yok", alt: "sadece ses" },
-  { ad: "kafe", ad_tr: "Kafe", alt: "uğultu, fincan" },
-  { ad: "tribun", ad_tr: "Tribün", alt: "maç havası" },
-  { ad: "yagmur", ad_tr: "Yağmur", alt: "cama vuran" },
-  { ad: "sahil", ad_tr: "Sahil", alt: "dalga" },
-  { ad: "orman", ad_tr: "Orman", alt: "kuş, rüzgâr" },
-];
-// Seslerin ortalama yüksekliği farklı; eşitlemek için çarpan
-const DUZELTME = { kafe: 0.8, tribun: 1.1, yagmur: 1.5, sahil: 1.0, orman: 2.0 };
+// Ortamlar sesler/manifest.json'dan gelir (kaynak/sentez.py yazar)
+let MANIFEST = {};
 const ONEK = "ambiyans-sy-";
 const ICE = { iceServers: [
   { urls: "stun:stun.l.google.com:19302" },
@@ -103,7 +96,7 @@ const ICE = { iceServers: [
 const $ = id => document.getElementById(id);
 let oda = new URLSearchParams(location.hash.slice(1)).get("oda");
 let peer, cagri, veri, yerelAkis, ctx, ortamGain, sesGain, panner, kuru, uzakKaynak;
-let tamponlar = {}, ortamKaynak = null, seciliOrtam = "sessiz", ortamBaslangic = 0;
+let tamponlar = {}, sahne = null, seciliOrtam = "sessiz", ortamBaslangic = 0, basladi = false;
 
 function durum(yazi, tur) {
   $("durumYazi").textContent = yazi;
@@ -129,34 +122,117 @@ function sesHazirla() {
   kuru = ctx.createGain();
   kuru.connect(sesGain);
   ortamSesAyarla(); sesSesAyarla();
-  // Sesleri önden yükle
-  ORTAMLAR.filter(o => o.ad !== "sessiz").forEach(o => tamponYukle(o.ad));
+  // iOS başka bir ses (bildirim, mikrofon açılması, arama) gelince sesi askıya alır; geri aç
+  ctx.onstatechange = () => { if (basladi && ctx.state !== "running") ctx.resume().catch(() => {}); };
 }
 
-async function tamponYukle(ad) {
-  if (!tamponlar[ad]) tamponlar[ad] = fetch("sesler/" + ad + ".mp3")
+function tamponYukle(yol) {
+  if (!tamponlar[yol]) tamponlar[yol] = fetch("sesler/" + yol)
     .then(r => r.arrayBuffer())
     .then(b => new Promise((ok, red) => ctx.decodeAudioData(b, ok, red)));
-  return tamponlar[ad];
+  return tamponlar[yol];
 }
 
-async function ortamCal(ad, baslangic) {
+// --- Canlı sahne ---
+// Yatak: sürekli dönen iki uğultu. Olaylar: tek seferlik sesler, rastgele aralıkla.
+// Rastgelelik ortak başlangıç saatinden türeyen tohumla üretilir: iki telefon aynı olayı aynı anda duyar.
+function tohum(metin) {
+  let h = 2166136261;
+  for (const c of metin) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function zar(t) {  // mulberry32
+  return () => { t = (t + 0x6D2B79F5) >>> 0; let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r); return ((r ^ (r >>> 14)) >>> 0) / 4294967296; };
+}
+function mod(a, b) { return ((a % b) + b) % b; }
+
+function sonrakiOlay(d) {
+  const o = d.o, r = d.r;
+  d.t += (o.min + -Math.log(1 - r() * 0.999) * (o.ort - o.min)) * 1000;
+  d.p = { v: Math.floor(r() * o.dosyalar.length), pan: r() * 1.6 - 0.8, g: 0.65 + 0.35 * r(),
+          hiz: 0.92 + 0.16 * r(), yon: r() < 0.5 ? -1 : 1 };
+}
+
+function sahneKur(ad, bas) {
+  const m = MANIFEST[ad];
+  const s = { ad, bas, cikis: ctx.createGain(), kaynaklar: new Set(), yatakG: [], olaylar: [], dilim: -1 };
+  s.cikis.gain.value = 0;
+  s.cikis.connect(ortamGain);
+  s.cikis.gain.setTargetAtTime(1, ctx.currentTime, 0.8);
+  m.yatak.forEach((yol, i) => tamponYukle(yol).then(b => {
+    if (sahne !== s) return;
+    const src = ctx.createBufferSource(), g = ctx.createGain();
+    src.buffer = b; src.loop = true;
+    src.connect(g).connect(s.cikis);
+    src.start(0, mod((Date.now() - bas) / 1000, b.duration));
+    s.kaynaklar.add(src); s.yatakG[i] = g;
+  }));
+  m.olaylar.forEach((o, i) => {
+    o.dosyalar.forEach(tamponYukle);
+    const d = { o, r: zar(tohum(bas + ":" + ad + ":" + i)), t: bas };
+    sonrakiOlay(d);
+    s.olaylar.push(d);
+  });
+  s.zamanlayici = setInterval(() => sahneTik(s), 250);
+  sahneTik(s);
+  return s;
+}
+
+function sahneTik(s) {
+  const simdi = Date.now();
+  // Yatak yüksekliği 12 sn'lik dilimlerde yavaşça dalgalanır (kalabalık kabarır, söner)
+  const dilim = Math.floor((simdi - s.bas) / 12000);
+  if (dilim !== s.dilim) {
+    s.dilim = dilim;
+    s.yatakG.forEach((g, i) => g && g.gain.setTargetAtTime(
+      0.65 + 0.35 * zar(tohum(s.bas + ":" + s.ad + ":y" + i + ":" + dilim))(), ctx.currentTime, 3));
+  }
+  for (const d of s.olaylar) {
+    while (d.t < simdi - 800) sonrakiOlay(d);          // geç katıldıysa kaçanları atla
+    while (d.t < simdi + 1500) { olayCal(s, d); sonrakiOlay(d); }
+  }
+}
+
+function olayCal(s, d) {
+  const o = d.o, p = d.p;
+  tamponYukle(o.dosyalar[p.v]).then(b => {
+    if (sahne !== s) return;
+    const ne = Math.max(ctx.currentTime, ctx.currentTime + (d.t - Date.now()) / 1000);
+    const src = ctx.createBufferSource(), g = ctx.createGain();
+    src.buffer = b;
+    if (!o.sabit) src.playbackRate.value = p.hiz;
+    g.gain.value = o.kazanc * p.g;
+    let son = g;
+    if (ctx.createStereoPanner) {
+      const pn = ctx.createStereoPanner();
+      if (o.yuru) {                                    // soldan sağa (ya da tersi) geçer
+        pn.pan.setValueAtTime(-0.9 * p.yon, ne);
+        pn.pan.linearRampToValueAtTime(0.9 * p.yon, ne + b.duration);
+      } else pn.pan.value = p.pan;
+      g.connect(pn); son = pn;
+    }
+    src.connect(g); son.connect(s.cikis);
+    src.onended = () => s.kaynaklar.delete(src);
+    s.kaynaklar.add(src);
+    src.start(ne);
+  }).catch(() => {});
+}
+
+function sahneDurdur() {
+  if (!sahne) return;
+  const s = sahne; sahne = null;
+  clearInterval(s.zamanlayici);
+  s.cikis.gain.setTargetAtTime(0, ctx.currentTime, 0.4);
+  setTimeout(() => { s.kaynaklar.forEach(k => { try { k.stop(); } catch (e) {} }); s.cikis.disconnect(); }, 2500);
+}
+
+function ortamCal(ad, baslangic) {
   seciliOrtam = ad; ortamBaslangic = baslangic;
   document.querySelectorAll(".ortam").forEach(b => b.classList.toggle("secili", b.dataset.ad === ad));
   if (!ctx) return;
-  if (ortamKaynak) { const eski = ortamKaynak; ortamKaynak = null;
-    eski.g.gain.setTargetAtTime(0, ctx.currentTime, 0.4); setTimeout(() => eski.s.stop(), 2000); }
-  if (ad === "sessiz") return;
-  const tampon = await tamponYukle(ad);
-  if (seciliOrtam !== ad) return;
-  const s = ctx.createBufferSource(), g = ctx.createGain();
-  s.buffer = tampon; s.loop = true;
-  g.gain.value = 0; g.gain.setTargetAtTime(DUZELTME[ad] || 1, ctx.currentTime, 0.6);
-  s.connect(g).connect(ortamGain);
-  // İki telefonda da aynı ana denk gelsin: ortak başlangıç saatine göre ofset
-  const ofset = (((Date.now() - baslangic) / 1000) % tampon.duration + tampon.duration) % tampon.duration;
-  s.start(0, ofset);
-  ortamKaynak = { s, g };
+  sahneDurdur();
+  if (ad !== "sessiz" && MANIFEST[ad]) sahne = sahneKur(ad, baslangic);
 }
 
 function ortamSesAyarla() { if (ortamGain) ortamGain.gain.value = ($("ortamSes").value / 100) ** 2; }
@@ -198,6 +274,8 @@ async function baslat() {
   } catch (e) {
     durum("Mikrofon izni verilmedi", "hata"); $("baslatBtn").disabled = false; return;
   }
+  basladi = true;
+  ctx.resume().catch(() => {});   // iOS mikrofon açılınca sesi askıya alabiliyor
   ekranAcik();
   if (seciliOrtam !== "sessiz") ortamCal(seciliOrtam, ortamBaslangic || Date.now());
   if (!oda) { oda = odaKodu(); history.replaceState(null, "", "#oda=" + oda); }
@@ -266,14 +344,33 @@ async function ekranAcik() {
 }
 
 // --- Arayüz ---
-ORTAMLAR.forEach(o => {
+function ortamDugmesi(ad, baslik, alt, kap) {
   const b = document.createElement("button");
-  b.className = "ortam" + (o.ad === "sessiz" ? " secili" : "");
-  b.dataset.ad = o.ad;
-  b.innerHTML = o.ad_tr + "<small>" + o.alt + "</small>";
-  b.onclick = () => { ortamCal(o.ad, Date.now()); gonder(); };
-  $("ortamlar").appendChild(b);
+  b.className = "ortam" + (ad === seciliOrtam ? " secili" : "");
+  b.dataset.ad = ad;
+  b.innerHTML = baslik + "<small>" + alt + "</small>";
+  b.onclick = () => { ortamCal(ad, Date.now()); gonder(); };
+  kap.appendChild(b);
+}
+fetch("sesler/manifest.json").then(r => r.json()).then(m => {
+  MANIFEST = m;
+  const gruplar = {};
+  Object.entries(m).forEach(([ad, o]) => (gruplar[o.grup] = gruplar[o.grup] || []).push([ad, o]));
+  const kok = $("ortamlar");
+  const ilk = document.createElement("div"); ilk.className = "ortamlar";
+  ortamDugmesi("sessiz", "Yok", "sadece ses", ilk);
+  kok.appendChild(ilk);
+  Object.entries(gruplar).forEach(([grup, liste]) => {
+    const h = document.createElement("p"); h.className = "grup"; h.textContent = grup;
+    const izgara = document.createElement("div"); izgara.className = "ortamlar";
+    liste.forEach(([ad, o]) => ortamDugmesi(ad, o.baslik, o.alt, izgara));
+    kok.append(h, izgara);
+  });
+  if (seciliOrtam !== "sessiz" && ctx && !sahne) ortamCal(seciliOrtam, ortamBaslangic);
 });
+["touchend", "click"].forEach(e => document.addEventListener(e, () => {
+  if (basladi && ctx && ctx.state !== "running") ctx.resume().catch(() => {});
+}));
 $("baslatBtn").onclick = baslat;
 $("paylasBtn").onclick = async () => {
   const url = davetAdresi();
@@ -289,6 +386,7 @@ $("kapatBtn").onclick = () => {
   if (cagri) cagri.close(); if (peer) peer.destroy();
   if (yerelAkis) yerelAkis.getTracks().forEach(t => t.stop());
   ortamCal("sessiz", 0);
+  basladi = false;
   durum("Arama bitti", ""); goster("aramaAlani", false); goster("davetAlani", false);
 };
 $("ortamSes").oninput = ortamSesAyarla;
