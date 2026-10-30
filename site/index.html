@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14110f">
+<title>Ambiyans</title>
+<style>
+:root {
+  --bg: #14110f; --kart: #1f1b18; --cizgi: #2e2925; --yazi: #f2ece6; --soluk: #a39a91;
+  --vurgu: #e8a35c; --vurgu-yazi: #1a120a; --kirmizi: #d9534f; --yesil: #6cbf84;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--yazi);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 480px; margin: 0 auto; padding: 24px 16px calc(24px + env(safe-area-inset-bottom)); }
+h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: .2px; }
+.alt { color: var(--soluk); font-size: 14px; margin: 0 0 20px; }
+.kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+.durum { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.nokta { width: 10px; height: 10px; border-radius: 50%; background: var(--soluk); flex: none; }
+.nokta.bekle { background: var(--vurgu); animation: nefes 1.4s infinite; }
+.nokta.bagli { background: var(--yesil); }
+.nokta.hata { background: var(--kirmizi); }
+@keyframes nefes { 50% { opacity: .35; } }
+button { font: inherit; border: 0; border-radius: 12px; padding: 14px 16px; cursor: pointer; width: 100%;
+  background: var(--vurgu); color: var(--vurgu-yazi); font-weight: 600; }
+button.ikincil { background: transparent; color: var(--yazi); border: 1px solid var(--cizgi); }
+button.kirmizi { background: var(--kirmizi); color: #fff; }
+button:disabled { opacity: .45; }
+.satir { display: flex; gap: 10px; margin-top: 12px; }
+.satir > * { flex: 1; }
+.davet { margin-top: 12px; font-size: 14px; color: var(--soluk); word-break: break-all; }
+.ortamlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ortam { background: var(--bg); border: 1px solid var(--cizgi); border-radius: 12px; padding: 14px 6px;
+  text-align: center; color: var(--yazi); font-weight: 500; font-size: 15px; }
+.ortam.secili { border-color: var(--vurgu); color: var(--vurgu); background: rgba(232,163,92,.08); }
+.ortam small { display: block; color: var(--soluk); font-weight: 400; font-size: 12px; margin-top: 2px; }
+.baslik { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--soluk); margin: 0 0 10px; }
+label.kaydir { display: block; margin-top: 14px; font-size: 14px; color: var(--soluk); }
+input[type=range] { width: 100%; accent-color: var(--vurgu); margin-top: 6px; }
+.anahtar { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 15px; }
+.anahtar input { width: 22px; height: 22px; accent-color: var(--vurgu); }
+.not { font-size: 13px; color: var(--soluk); margin-top: 8px; }
+.gizli { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ambiyans</h1>
+  <p class="alt">Sesli arama, arkada ortak bir ortam sesiyle.</p>
+
+  <div class="kart">
+    <div class="durum"><span class="nokta" id="nokta"></span><span id="durumYazi">Hazır</span></div>
+    <div id="girisAlani">
+      <div class="satir"><button id="baslatBtn">Aramaya katıl</button></div>
+      <p class="not">Kulaklık tak. Mikrofon izni istenecek.</p>
+    </div>
+    <div id="davetAlani" class="gizli">
+      <div class="satir"><button id="paylasBtn" class="ikincil">Bağlantıyı gönder</button></div>
+      <div class="davet" id="davetLink"></div>
+    </div>
+    <div id="aramaAlani" class="gizli">
+      <div class="satir">
+        <button id="sessizBtn" class="ikincil">Mikrofonu kapat</button>
+        <button id="kapatBtn" class="kirmizi">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kart">
+    <p class="baslik">Ortam</p>
+    <div class="ortamlar" id="ortamlar"></div>
+    <p class="not" id="ortamNot">Seçtiğin ortam karşı tarafta da açılır.</p>
+    <label class="kaydir">Ortam sesi <input type="range" id="ortamSes" min="0" max="100" value="45"></label>
+    <label class="kaydir">Karşı tarafın sesi <input type="range" id="sesSes" min="0" max="200" value="100"></label>
+    <div class="anahtar"><span>3B ses (kulaklıkla)</span><input type="checkbox" id="ucBoyut" checked></div>
+    <p class="not">3B açıkken karşı taraf masanın karşısından konuşuyormuş gibi gelir.</p>
+  </div>
+</main>
+
+<audio id="uzakAudio" autoplay playsinline muted></audio>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script>
+const ORTAMLAR = [
+  { ad: "sessiz", ad_tr: "Yok", alt: "sadece ses" },
+  { ad: "kafe", ad_tr: "Kafe", alt: "uğultu, fincan" },
+  { ad: "tribun", ad_tr: "Tribün", alt: "maç havası" },
+  { ad: "yagmur", ad_tr: "Yağmur", alt: "cama vuran" },
+  { ad: "sahil", ad_tr: "Sahil", alt: "dalga" },
+  { ad: "orman", ad_tr: "Orman", alt: "kuş, rüzgâr" },
+];
+// Seslerin ortalama yüksekliği farklı; eşitlemek için çarpan
+const DUZELTME = { kafe: 0.8, tribun: 1.1, yagmur: 1.5, sahil: 1.0, orman: 2.0 };
+const ONEK = "ambiyans-sy-";
+const ICE = { iceServers: [
+  { urls: "stun:stun.l.google.com:19302" },
+  { urls: "stun:stun1.l.google.com:19302" },
+  { urls: "stun:stun.cloudflare.com:3478" },
+]};
+
+const $ = id => document.getElementById(id);
+let oda = new URLSearchParams(location.hash.slice(1)).get("oda");
+let peer, cagri, veri, yerelAkis, ctx, ortamGain, sesGain, panner, kuru, uzakKaynak;
+let tamponlar = {}, ortamKaynak = null, seciliOrtam = "sessiz", ortamBaslangic = 0;
+
+function durum(yazi, tur) {
+  $("durumYazi").textContent = yazi;
+  $("nokta").className = "nokta " + (tur || "");
+}
+function goster(id, acik) { $(id).classList.toggle("gizli", !acik); }
+
+// --- Ses grafiği ---
+function sesHazirla() {
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  ortamGain = ctx.createGain();
+  ortamGain.connect(ctx.destination);
+  sesGain = ctx.createGain();
+  sesGain.connect(ctx.destination);
+  panner = ctx.createPanner();
+  panner.panningModel = "HRTF";
+  panner.distanceModel = "inverse";
+  panner.refDistance = 1;
+  // masanın karşısı, biraz sağ
+  if (panner.positionX) { panner.positionX.value = 0.5; panner.positionY.value = 0; panner.positionZ.value = -1.2; }
+  else panner.setPosition(0.5, 0, -1.2);
+  panner.connect(sesGain);
+  kuru = ctx.createGain();
+  kuru.connect(sesGain);
+  ortamSesAyarla(); sesSesAyarla();
+  // Sesleri önden yükle
+  ORTAMLAR.filter(o => o.ad !== "sessiz").forEach(o => tamponYukle(o.ad));
+}
+
+async function tamponYukle(ad) {
+  if (!tamponlar[ad]) tamponlar[ad] = fetch("sesler/" + ad + ".mp3")
+    .then(r => r.arrayBuffer())
+    .then(b => new Promise((ok, red) => ctx.decodeAudioData(b, ok, red)));
+  return tamponlar[ad];
+}
+
+async function ortamCal(ad, baslangic) {
+  seciliOrtam = ad; ortamBaslangic = baslangic;
+  document.querySelectorAll(".ortam").forEach(b => b.classList.toggle("secili", b.dataset.ad === ad));
+  if (!ctx) return;
+  if (ortamKaynak) { const eski = ortamKaynak; ortamKaynak = null;
+    eski.g.gain.setTargetAtTime(0, ctx.currentTime, 0.4); setTimeout(() => eski.s.stop(), 2000); }
+  if (ad === "sessiz") return;
+  const tampon = await tamponYukle(ad);
+  if (seciliOrtam !== ad) return;
+  const s = ctx.createBufferSource(), g = ctx.createGain();
+  s.buffer = tampon; s.loop = true;
+  g.gain.value = 0; g.gain.setTargetAtTime(DUZELTME[ad] || 1, ctx.currentTime, 0.6);
+  s.connect(g).connect(ortamGain);
+  // İki telefonda da aynı ana denk gelsin: ortak başlangıç saatine göre ofset
+  const ofset = (((Date.now() - baslangic) / 1000) % tampon.duration + tampon.duration) % tampon.duration;
+  s.start(0, ofset);
+  ortamKaynak = { s, g };
+}
+
+function ortamSesAyarla() { if (ortamGain) ortamGain.gain.value = ($("ortamSes").value / 100) ** 2; }
+function sesSesAyarla() { if (sesGain) sesGain.gain.value = $("sesSes").value / 100; }
+
+function uzakSesBagla(akis) {
+  const el = $("uzakAudio");
+  el.srcObject = akis;            // Chrome uzak akışı WebAudio'ya ancak bir <audio>'ya bağlıyken verir
+  el.play().catch(() => {});
+  try {
+    if (uzakKaynak) uzakKaynak.disconnect();
+    uzakKaynak = ctx.createMediaStreamSource(akis);
+    yonlendir();
+    el.muted = true;
+  } catch (e) {
+    el.muted = false;              // WebAudio olmazsa düz çal
+  }
+}
+function yonlendir() {
+  if (!uzakKaynak) return;
+  uzakKaynak.disconnect();
+  uzakKaynak.connect($("ucBoyut").checked ? panner : kuru);
+}
+
+// --- Bağlantı ---
+function odaKodu() {
+  const h = "abcdefghjkmnpqrstuvwxyz23456789";
+  return Array.from(crypto.getRandomValues(new Uint8Array(5)), b => h[b % h.length]).join("");
+}
+
+async function baslat() {
+  $("baslatBtn").disabled = true;
+  sesHazirla();
+  await ctx.resume();
+  try {
+    yerelAkis = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+    });
+  } catch (e) {
+    durum("Mikrofon izni verilmedi", "hata"); $("baslatBtn").disabled = false; return;
+  }
+  ekranAcik();
+  if (seciliOrtam !== "sessiz") ortamCal(seciliOrtam, ortamBaslangic || Date.now());
+  if (!oda) { oda = odaKodu(); history.replaceState(null, "", "#oda=" + oda); }
+  goster("girisAlani", false);
+  evSahibiOl();
+}
+
+// Odayı ilk açan ev sahibi olur; kod doluysa misafir olarak bağlanır.
+function evSahibiOl() {
+  durum("Bağlanıyor…", "bekle");
+  peer = new Peer(ONEK + oda, { config: ICE, debug: 1 });
+  peer.on("open", () => {
+    durum("Karşı tarafı bekliyorsun", "bekle");
+    $("davetLink").textContent = davetAdresi();
+    goster("davetAlani", true);
+  });
+  peer.on("call", c => { c.answer(yerelAkis); aramaKur(c); });
+  peer.on("connection", v => veriKur(v));
+  peer.on("error", e => {
+    if (e.type === "unavailable-id") { peer.destroy(); misafirOl(); }
+    else if (e.type !== "peer-unavailable") durum("Hata: " + e.type, "hata");
+  });
+}
+
+function misafirOl() {
+  durum("Odaya bağlanıyor…", "bekle");
+  peer = new Peer(undefined, { config: ICE, debug: 1 });
+  peer.on("open", () => {
+    aramaKur(peer.call(ONEK + oda, yerelAkis));
+    veriKur(peer.connect(ONEK + oda, { reliable: true }));
+  });
+  peer.on("error", e => durum("Bağlanamadı: " + e.type, "hata"));
+}
+
+function aramaKur(c) {
+  if (cagri) cagri.close();
+  cagri = c;
+  c.on("stream", akis => {
+    uzakSesBagla(akis);
+    durum("Bağlı", "bagli");
+    goster("davetAlani", false); goster("aramaAlani", true);
+  });
+  c.on("close", () => { durum("Arama bitti", ""); goster("aramaAlani", false); });
+  const pc = c.peerConnection;
+  if (pc) pc.addEventListener("iceconnectionstatechange", () => {
+    if (pc.iceConnectionState === "failed")
+      durum("Bağlantı kurulamadı. İkiniz de aynı Wi-Fi'ye geçip yeniden deneyin.", "hata");
+    if (pc.iceConnectionState === "disconnected") durum("Bağlantı koptu, bekleniyor…", "bekle");
+    if (pc.iceConnectionState === "connected") durum("Bağlı", "bagli");
+  });
+}
+
+function veriKur(v) {
+  veri = v;
+  v.on("open", () => { if (seciliOrtam !== "sessiz") gonder(); });
+  v.on("data", m => { if (m && m.t === "ortam") ortamCal(m.ad, m.bas); });
+}
+function gonder() {
+  if (veri && veri.open) veri.send({ t: "ortam", ad: seciliOrtam, bas: ortamBaslangic });
+}
+
+function davetAdresi() { return location.origin + location.pathname + "#oda=" + oda; }
+
+async function ekranAcik() {
+  try { if ("wakeLock" in navigator) await navigator.wakeLock.request("screen"); } catch (e) {}
+}
+
+// --- Arayüz ---
+ORTAMLAR.forEach(o => {
+  const b = document.createElement("button");
+  b.className = "ortam" + (o.ad === "sessiz" ? " secili" : "");
+  b.dataset.ad = o.ad;
+  b.innerHTML = o.ad_tr + "<small>" + o.alt + "</small>";
+  b.onclick = () => { ortamCal(o.ad, Date.now()); gonder(); };
+  $("ortamlar").appendChild(b);
+});
+$("baslatBtn").onclick = baslat;
+$("paylasBtn").onclick = async () => {
+  const url = davetAdresi();
+  try { if (navigator.share) { await navigator.share({ title: "Ambiyans", url }); return; } } catch (e) { return; }
+  try { await navigator.clipboard.writeText(url); $("paylasBtn").textContent = "Kopyalandı"; } catch (e) {}
+};
+$("sessizBtn").onclick = () => {
+  const t = yerelAkis && yerelAkis.getAudioTracks()[0]; if (!t) return;
+  t.enabled = !t.enabled;
+  $("sessizBtn").textContent = t.enabled ? "Mikrofonu kapat" : "Mikrofonu aç";
+};
+$("kapatBtn").onclick = () => {
+  if (cagri) cagri.close(); if (peer) peer.destroy();
+  if (yerelAkis) yerelAkis.getTracks().forEach(t => t.stop());
+  ortamCal("sessiz", 0);
+  durum("Arama bitti", ""); goster("aramaAlani", false); goster("davetAlani", false);
+};
+$("ortamSes").oninput = ortamSesAyarla;
+$("sesSes").oninput = sesSesAyarla;
+$("ucBoyut").onchange = yonlendir;
+document.addEventListener("visibilitychange", () => { if (!document.hidden) { ekranAcik(); if (ctx) ctx.resume(); } });
+if (oda) $("baslatBtn").textContent = "Aramaya katıl";
+else $("baslatBtn").textContent = "Arama başlat";
+</script>
+</body>
+</html>
