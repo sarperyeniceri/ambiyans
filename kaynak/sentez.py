@@ -1,5 +1,5 @@
 """Ambiyans seslerini sentezler: kafe, tribün, yağmur, sahil, orman.
-Çıktı: ../site/sesler/<ad>.mp3 (44.1 kHz stereo, uçları birbirine bağlı döngü).
+Çıktı: ../docs/sesler/<ad>.mp3 (44.1 kHz stereo, uçları birbirine bağlı döngü).
 Çalıştır: /opt/miniconda3/bin/python3 sentez.py
 """
 import os
@@ -16,7 +16,7 @@ SURE = 45          # döngü uzunluğu (sn)
 BINDIRME = 3       # döngü dikişindeki çapraz geçiş (sn)
 N = SR * (SURE + BINDIRME)
 BURA = os.path.dirname(os.path.abspath(__file__))
-CIKTI = os.path.join(BURA, "..", "site", "sesler")
+CIKTI = os.path.join(BURA, "..", "docs", "sesler")
 rng = np.random.default_rng(7)
 random.seed(7)
 
